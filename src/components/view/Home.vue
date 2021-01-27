@@ -1,5 +1,5 @@
 <template>
-  <h1>Tiempo largo sin verte</h1>
+  <h1>MAY THE FORCE BE WITH VUE</h1>
   <p>¿Qué has venido a buscar?</p>
   <router-link
     :key="key"

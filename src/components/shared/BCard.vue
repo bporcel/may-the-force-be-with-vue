@@ -1,10 +1,13 @@
 <template>
-  <router-link
-    :to="{ name: 'Detail', params: { id: id } }"
+  <button
+    :id="id"
+    :to="{ name: 'PeopleDetail' }"
     class="card"
+    v-on:click="(e) => handleClick(e.currentTarget.id)"
   >
     {{ name }}
-  </router-link>
+    {{ subtitle }}
+  </button>
 </template>
 
 <script>
@@ -15,8 +18,16 @@ export default {
       type: String,
       required: true,
     },
+    subtitle: {
+      type: Array,
+      required: true,
+    },
     id: {
-      type: Number,
+      type: String,
+      required: true,
+    },
+    handleClick: {
+      type: Function,
       required: true,
     },
   },

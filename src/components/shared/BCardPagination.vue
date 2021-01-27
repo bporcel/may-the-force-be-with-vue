@@ -1,9 +1,16 @@
 <template>
   <div class="grid">
-    <b-card :key="key" v-for="(item, key) in items" :name="item.name" :id="key" />
+    <b-card
+      :key="key"
+      v-for="(item, key) in items"
+      :name="item.name"
+      :subtitle="item.films"
+      :id="item.url.split('/')[5]"
+      :handleClick="handleClickCard"
+    />
   </div>
   <button
-    :class="`#${i}` === hash ? 'active' : ''"
+    :class="`#page=${i}` === hash ? 'active' : ''"
     :id="i"
     v-on:click="(e) => handleClickButton(e.currentTarget.id)"
     :key="i"
@@ -34,6 +41,10 @@ export default {
       required: true,
     },
     handleClickButton: {
+      type: Function,
+      required: true,
+    },
+    handleClickCard: {
       type: Function,
       required: true,
     },

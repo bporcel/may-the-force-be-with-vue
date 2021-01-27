@@ -1,13 +1,14 @@
 <template>
+  <h1>Hente</h1>
   <div v-if="fetching">{{ t_("fetching") }}</div>
   <div v-else-if="error">La fuerza se debilita</div>
   <div v-else>
-    <h1>Mira todos los que han venido</h1>
     <b-card-pagination
       :records="people.count"
       :perPage="10"
       :data="people.results"
-      :handleClickButton="HandleClickChangePage"
+      :handleClickButton="handleClickChangePage"
+      :handleClickCard="goToDetail"
     />
   </div>
 </template>
@@ -15,7 +16,7 @@
 <script>
 import { onBeforeMount, reactive, toRefs } from "vue";
 import { useRouter } from "vue-router";
-import usePeople from "@/hooks/usePeople";
+import getPeople from "@/service/getPeople";
 import usei18n from "@/hooks/usei18n";
 import BCardPagination from "@/components/shared/BCardPagination";
 export default {
@@ -31,24 +32,45 @@ export default {
     });
 
     onBeforeMount(() => {
-      const { people, error, fetching } = usePeople("?page=1");
-      state.people = people;
-      state.error = error;
-      state.fetching = fetching;
-      router.push(`#1`);
+      if (!router.currentRoute.value.fullPath.includes("#page=")) {
+        router.push(`#page=1`);
+      }
+      const query = router.currentRoute.value.hash.replace("#", "?");
+      state.fetching = true;
+      getPeople(query)
+        .then((res) => {
+          state.people = res;
+        })
+        .catch((err) => {
+          state.error = err;
+        })
+        .finally(() => {
+          state.fetching = false;
+        });
     });
 
-    const HandleClickChangePage = (id) => {
-      if (router.currentRoute.value.hash !== `#${id}`) {
-        const { people, error, fetching } = usePeople(`?page=${id}`);
-        state.error = error;
-        state.fetching = fetching;
-        state.people = people;
-        router.push(`#${id}`);
+    const goToDetail = (id) => {
+      router.push({ name: "PeopleDetail", params: { id: id } });
+    };
+
+    const handleClickChangePage = (id) => {
+      if (router.currentRoute.value.hash !== `#page=${id}`) {
+        state.fetching = true;
+        getPeople(`?page=${id}`)
+          .then((res) => {
+            state.people = res;
+          })
+          .catch((err) => {
+            state.error = err;
+          })
+          .finally(() => {
+            state.fetching = false;
+          });
+        router.push(`#page=${id}`);
       }
     };
 
-    return { ...toRefs(state), HandleClickChangePage, t_ };
+    return { ...toRefs(state), handleClickChangePage, goToDetail, t_ };
   },
 };
 </script>
