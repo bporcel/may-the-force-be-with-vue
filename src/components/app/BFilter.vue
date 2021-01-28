@@ -1,6 +1,6 @@
 <template>
   <input
-    v-on:input="e => handleFilter(e.target.value)"
+    @input="e => handleFilter(e.target.value)"
     :placeholder="t_('filterPlaceholder')"
   />
 </template>

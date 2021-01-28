@@ -14,7 +14,7 @@
       <button
         :class="`pageBtn ${i === currentPage && 'active'}`"
         :id="i"
-        v-on:click="e => handleClickButton(e.currentTarget.id)"
+        @click="e => handleClickButton(e.currentTarget.id)"
         :key="i"
         v-for="i in totalPages"
       >

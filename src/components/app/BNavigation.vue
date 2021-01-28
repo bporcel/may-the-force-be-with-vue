@@ -17,7 +17,7 @@ export default {
   name: 'b-navigation',
   setup() {
     const router = useRouter();
-    const route = useRouter().currentRoute;
+    const route = router && router.currentRoute;
     const data = ref([]);
 
     const mapRoutes = {

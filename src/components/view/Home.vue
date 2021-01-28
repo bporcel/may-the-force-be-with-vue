@@ -17,7 +17,6 @@
 import usei18n from '@/hooks/usei18n';
 export default {
   name: 'Home',
-  components: {},
   setup() {
     const { t_ } = usei18n();
 
