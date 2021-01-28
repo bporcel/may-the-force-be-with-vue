@@ -1,29 +1,53 @@
-# may-the-force-be-with-vue
+# May the force be with VUE
 
 ## Project setup
+
+Install dependencies
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+Compiles and minifies for production
+
 ```
 npm run build
 ```
 
-### Run your unit tests
+Run tests
+
 ```
-npm run test:unit
+npm run test
 ```
 
-### Lints and fixes files
+Lint files
+
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Prettier files
+
+```
+npm run prettier
+```
+
+## Docker
+
+Build image
+
+```
+docker build . -t [tag]
+```
+
+Run image
+
+```
+docker run -p 8080:8080 [tag]
+```
