@@ -28,6 +28,14 @@ export default {
     text-align: right;
   }
 }
+
+@media only screen and (max-width: 1460px) {
+  .grid {
+    grid-template-columns: auto;
+    grid-template-rows: 0.1fr 1fr;
+    grid-gap: 0em;
+  }
+}
 </style>
 
 <style lang="scss">
@@ -63,5 +71,11 @@ button {
   color: #ffffff;
   font-size: 1em;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    margin: 2em;
+  }
 }
 </style>

@@ -107,4 +107,11 @@ export default {
   padding: 1em;
   margin: 1em 0;
 }
+
+@media only screen and (max-width: 650px) {
+  .grid {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+}
 </style>

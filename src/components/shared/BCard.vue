@@ -39,4 +39,10 @@ export default {
     border: none;
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .card {
+    margin: 1em 0;
+  }
+}
 </style>
