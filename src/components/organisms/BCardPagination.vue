@@ -11,7 +11,7 @@
           :handleClick="handleClickCard"
         />
       </div>
-      <button
+      <b-button
         :class="`pageBtn ${i === currentPage && 'active'}`"
         :id="i"
         @click="e => handleClickButton(e.currentTarget.id)"
@@ -19,7 +19,7 @@
         v-for="i in totalPages"
       >
         {{ i }}
-      </button>
+      </b-button>
     </div>
     <div v-else class="card">No results found</div>
   </div>
@@ -27,11 +27,12 @@
 
 <script>
 import { reactive, toRefs } from 'vue';
-import BCard from '@/components/shared/BCard';
-import BFilter from '@/components/app/BFilter';
+import BButton from '@/components/atoms/BButton';
+import BCard from '@/components/molecules/BCard';
+import BFilter from '@/components/molecules/BFilter';
 export default {
   name: 'b-card-pagination',
-  components: { BCard, BFilter },
+  components: { BCard, BFilter, BButton },
   props: {
     records: {
       type: Number,

@@ -59,7 +59,7 @@ import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 import { getStarships } from '@/service/getStarships';
 import usei18n from '@/hooks/usei18n';
-import BDetail from '@/components/shared/BDetail';
+import BDetail from '@/components/molecules/BDetail';
 export default {
   name: 'StarshipDetail',
   components: {

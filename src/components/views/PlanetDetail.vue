@@ -2,48 +2,48 @@
   <div v-if="fetching">{{ t_('fetching') }}</div>
   <div v-else-if="error">{{ t_('fetchError') }}</div>
   <div v-else>
-    <h1>{{ person.name }}</h1>
+    <h1>{{ planet.name }}</h1>
     <b-detail
       :data="[
         {
-          text: 'Año de nacimiento: ',
-          data: person.birth_year,
+          text: 'Rotation period: ',
+          data: planet.rotation_period,
         },
         {
-          text: 'Genero: ',
-          data: person.gender,
+          text: 'Orbital period: ',
+          data: planet.orbital_period,
         },
         {
-          text: 'Color de ojos: ',
-          data: person.eye_color,
+          text: 'Diameter: ',
+          data: planet.diameter,
         },
         {
-          text: 'Altura: ',
-          data: person.height,
+          text: 'Climate: ',
+          data: planet.climate,
         },
         {
-          text: 'Color de pelo: ',
-          data: person.hair_color,
+          text: 'Gravity: ',
+          data: planet.gravity,
         },
         {
-          text: 'Color de piel: ',
-          data: person.skin_color,
+          text: 'Terrain: ',
+          data: planet.terrain,
         },
         {
-          text: 'Películas: ',
-          data: person.films,
+          text: 'Surface water: ',
+          data: planet.surface_water,
         },
         {
-          text: 'Vehiculos: ',
-          data: person.vehicles,
+          text: 'Population: ',
+          data: planet.population,
         },
         {
-          text: 'Naves: ',
-          data: person.starships,
+          text: 'Residents: ',
+          data: planet.residents,
         },
         {
-          text: 'Planeta natal: ',
-          data: person.homeworld,
+          text: 'Films: ',
+          data: planet.films,
         },
       ]"
     />
@@ -53,9 +53,9 @@
 <script>
 import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
-import { getPeople } from '@/service/getPeople';
+import { getPlanets } from '@/service/getPlanets';
 import usei18n from '@/hooks/usei18n';
-import BDetail from '@/components/shared/BDetail';
+import BDetail from '@/components/molecules/BDetail';
 export default {
   name: 'Detail',
   components: {
@@ -65,16 +65,16 @@ export default {
     const route = useRoute();
     const { t_ } = usei18n();
     const state = reactive({
-      person: {},
+      planet: {},
       error: null,
       fetching: false,
     });
 
     onBeforeMount(() => {
       state.fetching = true;
-      getPeople(route.fullPath.split('/').pop())
+      getPlanets(route.fullPath.split('/').pop())
         .then(res => {
-          state.person = res;
+          state.planet = res;
         })
         .catch(err => {
           state.error = err;

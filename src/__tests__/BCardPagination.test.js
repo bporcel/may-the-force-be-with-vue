@@ -1,7 +1,9 @@
 import { shallowMount } from '@vue/test-utils';
-import BCardPagination from '@/components/app/BCardPagination';
-import BFilter from '@/components/app/BFilter';
-import BCard from '@/components/shared/BCard';
+import BCardPagination from '@/components/organisms/BCardPagination';
+import BFilter from '@/components/molecules/BFilter';
+import BCard from '@/components/molecules/BCard';
+import BButton from '@/components/atoms/BButton';
+
 
 const factory = props =>
   shallowMount(BCardPagination, {
@@ -40,7 +42,7 @@ describe('BCardPagination', () => {
     expect(wrapper.findAllComponents(BCard)).toHaveLength(
       wrapper.vm.items.length
     );
-    expect(wrapper.findAll('button')).toHaveLength(wrapper.vm.totalPages);
+    expect(wrapper.findAllComponents(BButton)).toHaveLength(wrapper.vm.totalPages);
   });
 
   it('Click on page btn should change currentPage to given id and slice data', () => {

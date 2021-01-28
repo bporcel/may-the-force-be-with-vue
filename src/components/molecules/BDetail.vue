@@ -2,12 +2,7 @@
   <div class="details">
     <p :key="key" v-for="(d, key) in data">
       <strong>{{ d.text }}</strong>
-      <span v-if="!Array.isArray(d.data)">
-        {{ d.data }}
-      </span>
-      <span v-else :key="i" v-for="(info, i) in d.data">
-        {{ i !== d.data.length - 1 ? `${info}, ` : info }}
-      </span>
+      {{ d.data }}
     </p>
   </div>
 </template>

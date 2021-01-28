@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import BDetail from '@/components/shared/BDetail';
+import BDetail from '@/components/molecules/BDetail';
 
 const factory = props =>
   shallowMount(BDetail, {

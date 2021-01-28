@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import BNavigation from '@/components/app/BNavigation';
+import BNavigation from '@/components/atoms/BNavigation';
 
 describe('BNavigation', () => {
   it('Renders navigation buttons according to data.length', () => {

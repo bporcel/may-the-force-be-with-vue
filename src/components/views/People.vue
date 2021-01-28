@@ -1,12 +1,12 @@
 <template>
-  <h1>{{ t_('starships') }}</h1>
+  <h1>{{ t_('people') }}</h1>
   <div v-if="fetching">{{ t_('fetching') }}</div>
   <div v-else-if="error">{{ t_('fetchError') }}</div>
   <div v-else>
     <b-card-pagination
-      :records="starships.count"
+      :records="people.count"
       :perPage="10"
-      :data="starships.results"
+      :data="people.results"
       :handleClickCard="goToDetail"
     />
   </div>
@@ -15,26 +15,26 @@
 <script>
 import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
-import { getAllStarships } from '@/service/getStarships';
+import { getAllPeople } from '@/service/getPeople';
 import usei18n from '@/hooks/usei18n';
-import BCardPagination from '@/components/app/BCardPagination';
+import BCardPagination from '@/components/organisms/BCardPagination';
 export default {
-  name: 'Starships',
+  name: 'People',
   components: { BCardPagination },
   setup() {
     const { t_ } = usei18n();
     const router = useRouter();
     const state = reactive({
-      starships: [],
+      people: [],
       error: null,
       fetching: false,
     });
 
     onBeforeMount(() => {
       state.fetching = true;
-      getAllStarships()
+      getAllPeople()
         .then(res => {
-          state.starships = res;
+          state.people = res;
         })
         .catch(err => {
           state.error = err;
@@ -45,7 +45,7 @@ export default {
     });
 
     const goToDetail = id => {
-      router.push({ name: 'StarshipDetail', params: { id: id } });
+      router.push({ name: 'PeopleDetail', params: { id: id } });
     };
 
     return {

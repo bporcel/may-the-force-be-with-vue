@@ -1,5 +1,5 @@
 <template>
-  <button
+  <b-button
     class="bubble"
     :key="key"
     v-for="(line, key) in data"
@@ -7,14 +7,19 @@
   >
     {{ mapRoutes[line] && mapRoutes[line].question }}
     <span class="answer">{{ mapRoutes[line] && mapRoutes[line].answer }}</span>
-  </button>
+  </b-button>
 </template>
 
 <script>
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import BButton from '@/components/atoms/BButton';
+
 export default {
   name: 'b-navigation',
+  components: {
+    BButton,
+  },
   setup() {
     const router = useRouter();
     const route = router && router.currentRoute;

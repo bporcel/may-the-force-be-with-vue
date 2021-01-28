@@ -1,8 +1,9 @@
-import { shallowMount } from '@vue/test-utils';
-import BCard from '@/components/shared/BCard';
+import { mount } from '@vue/test-utils';
+import BCard from '@/components/molecules/BCard';
+import BButton from '@/components/atoms/BButton';
 
 const factory = props =>
-  shallowMount(BCard, {
+mount(BCard, {
     props: props,
   });
 
@@ -14,7 +15,7 @@ describe('BCard', () => {
       handleClick: jest.fn(),
     });
 
-    const button = wrapper.findComponent('button')
+    const button = wrapper.findComponent(BButton)
     expect(button.exists()).toBe(true)
     expect(wrapper.html()).toContain('Name');
   });
@@ -27,7 +28,7 @@ describe('BCard', () => {
     });
 
     jest.spyOn(wrapper.props(), 'handleClick')
-    const button = wrapper.findComponent('button');
+    const button = wrapper.findComponent(BButton);
     button.trigger('click')
     expect(wrapper.props().handleClick).toHaveBeenCalled()
   });

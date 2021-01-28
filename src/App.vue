@@ -11,7 +11,7 @@
 
 <script>
 import { useRoute } from 'vue-router';
-import BNavigation from '@/components/app/BNavigation';
+import BNavigation from '@/components/atoms/BNavigation';
 export default {
   name: 'App',
   components: { BNavigation },
@@ -75,42 +75,6 @@ a {
 
   &:hover {
     color: $white;
-  }
-}
-
-button {
-  background: none;
-  outline: none;
-  border: none;
-  color: $white;
-  font-size: 1em;
-  cursor: pointer;
-}
-
-input {
-  padding: 0.5em 0.2em;
-  width: 25%;
-  outline: none;
-  border: solid 1px $light-brown;
-  border-radius: 0.1em;
-  background-color: $light-brown;
-  color: $white;
-}
-
-.card {
-  background-color: $white;
-  color: $dark-brown;
-  padding: 1em;
-  margin: 1em 2em 1em 0;
-
-  &.btn {
-    cursor: pointer;
-    &:hover {
-      background-color: $light-brown;
-      color: $white;
-      transition: 300ms;
-      border: none;
-    }
   }
 }
 

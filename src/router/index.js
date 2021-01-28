@@ -1,11 +1,11 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Home from '@/components/view/Home.vue';
-import People from '@/components/view/People.vue';
-import PeopleDetail from '@/components/view/PeopleDetail.vue';
-import Planets from '@/components/view/Planets.vue';
-import PlanetDetail from '@/components/view/PlanetDetail.vue';
-import Starships from '@/components/view/Starships.vue';
-import StarshipDetail from '@/components/view/StarshipDetail.vue';
+import Home from '@/components/views/Home.vue';
+import People from '@/components/views/People.vue';
+import PeopleDetail from '@/components/views/PeopleDetail.vue';
+import Planets from '@/components/views/Planets.vue';
+import PlanetDetail from '@/components/views/PlanetDetail.vue';
+import Starships from '@/components/views/Starships.vue';
+import StarshipDetail from '@/components/views/StarshipDetail.vue';
 
 const routes = [
   {

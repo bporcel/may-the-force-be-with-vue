@@ -17,7 +17,7 @@ import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAllPlanets } from '@/service/getPlanets';
 import usei18n from '@/hooks/usei18n';
-import BCardPagination from '@/components/app/BCardPagination';
+import BCardPagination from '@/components/organisms/BCardPagination';
 export default {
   name: 'Planets',
   components: { BCardPagination },
