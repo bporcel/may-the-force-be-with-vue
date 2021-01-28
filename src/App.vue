@@ -1,5 +1,5 @@
 <template>
-  <div class="grid">
+  <div :class="route.fullPath !== '/' && 'grid'">
     <div class="end">
       <b-navigation />
     </div>
@@ -10,30 +10,41 @@
 </template>
 
 <script>
+import { useRoute } from 'vue-router';
 import BNavigation from '@/components/app/BNavigation';
 export default {
   name: 'App',
   components: { BNavigation },
+  setup() {
+    const route = useRoute();
+    return { route };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .grid {
   display: grid;
-  grid-template-columns: 0.2fr 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto;
   grid-gap: 3em;
 
   & .end {
     text-align: right;
+    text-align: -webkit-right;
   }
 }
 
-@media only screen and (max-width: 1460px) {
+@media only screen and (max-width: 850px) {
   .grid {
     grid-template-columns: auto;
-    grid-template-rows: 0.1fr 1fr;
+    grid-template-rows: auto 1fr;
     grid-gap: 0em;
+
+    & .end {
+      justify-self: end;
+      text-align: -webkit-right;
+    }
   }
 }
 </style>
@@ -41,7 +52,7 @@ export default {
 <style lang="scss">
 body {
   background-color: #181818;
-  // margin: 5% 30% 10% 10%;
+  // margin: 5% 5% 0 10%;
   margin: 5em;
 }
 
@@ -57,7 +68,9 @@ a {
   text-decoration: none;
   border-bottom: solid 1px #e0e07a;
   padding: 0.3em;
-  margin: 1em;
+  margin: 2em 1em 2em 0;
+  font-size: 1.2em;
+  display: block;
 
   &:hover {
     color: #ffffff;
@@ -73,7 +86,7 @@ button {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 850px) {
   body {
     margin: 2em;
   }

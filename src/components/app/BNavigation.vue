@@ -66,6 +66,7 @@ export default {
   text-align: right;
   background-color: #2e2e2e;
   border-radius: 0.2em;
+  display: block;
   & .answer {
     display: block;
     padding-top: 0.5em;
