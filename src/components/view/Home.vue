@@ -37,7 +37,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 950px) {
   .subgrid {
     text-align: center;
     grid-template-columns: auto;
@@ -46,7 +46,6 @@ export default {
     & img {
       width: 70%;
       justify-self: center;
-      // align-self: center;
     }
   }
 }

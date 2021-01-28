@@ -26,8 +26,9 @@ export default {
 
 <style lang="scss" scoped>
 .details {
-  background-color: #ffffff;
-  color: #181818;
+  background-color: $white;
+  color: $dark-brown;
   padding: 1em;
+  width: 75%;
 }
 </style>

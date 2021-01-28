@@ -64,7 +64,7 @@ export default {
   margin: 1em;
   padding: 1em;
   text-align: right;
-  background-color: #2e2e2e;
+  background-color: $light-brown;
   border-radius: 0.2em;
   display: block;
   & .answer {

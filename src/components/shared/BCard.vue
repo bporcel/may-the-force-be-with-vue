@@ -1,5 +1,9 @@
 <template>
-  <button :id="id" class="card" @click="e => handleClick(e.currentTarget.id)">
+  <button
+    :id="id"
+    class="card btn"
+    @click="e => handleClick(e.currentTarget.id)"
+  >
     {{ name }}
   </button>
 </template>
@@ -26,17 +30,19 @@ export default {
 
 <style lang="scss">
 .card {
-  background-color: #ffffff;
-  color: #181818;
+  background-color: $white;
+  color: $dark-brown;
   padding: 1em;
   margin: 1em 2em 1em 0;
-  cursor: pointer;
 
-  &:hover {
-    background-color: #2e2e2e;
-    color: #ffffff;
-    transition: 300ms;
-    border: none;
+  &.btn {
+    cursor: pointer;
+    &:hover {
+      background-color: $light-brown;
+      color: $white;
+      transition: 300ms;
+      border: none;
+    }
   }
 }
 

@@ -12,7 +12,7 @@
         />
       </div>
       <button
-        :class="i === currentPage && 'active'"
+        :class="`pageBtn ${i === currentPage && 'active'}`"
         :id="i"
         v-on:click="e => handleClickButton(e.currentTarget.id)"
         :key="i"
@@ -21,7 +21,7 @@
         {{ i }}
       </button>
     </div>
-    <div v-else class="no-results">No results found</div>
+    <div v-else class="card">No results found</div>
   </div>
 </template>
 
@@ -91,21 +91,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.pageBtn {
+  font-size: 1.2em;
+  &:hover {
+    color: $yellow;
+  }
+  &.active {
+    color: $yellow;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-.active {
-  color: #e0e07a;
-}
-
-.no-results {
-  background-color: #ffffff;
-  color: #181818;
-  padding: 1em;
-  margin: 1em 0;
+  grid-template-rows: auto;
 }
 
 @media only screen and (max-width: 650px) {
