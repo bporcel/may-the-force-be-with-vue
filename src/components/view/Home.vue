@@ -1,14 +1,12 @@
 <template>
-  <div class="center">
-    <h1>{{ t_('forceWithVue') }}</h1>
-    <h2>{{ t_('whyYouHere') }}</h2>
-    <router-link
-      :key="key"
-      :to="{ name: option.path }"
-      v-for="(option, key) in options"
-      >{{ option.text }}</router-link
-    >
-  </div>
+  <h1>{{ t_('forceWithVue') }}</h1>
+  <h2>{{ t_('whyYouHere') }}</h2>
+  <router-link
+    :key="key"
+    :to="{ name: option.path }"
+    v-for="(option, key) in options"
+    >{{ option.text }}</router-link
+  >
   <!-- <button v-on:click="changeLang()">es</button> -->
 </template>
 
@@ -34,9 +32,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.center {
-  text-align: center;
-}
-</style>

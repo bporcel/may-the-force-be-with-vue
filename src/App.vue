@@ -1,12 +1,34 @@
 <template>
-  <router-view />
+  <div class="grid">
+    <div class="end">
+      <b-navigation />
+    </div>
+    <div>
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <script>
+import BNavigation from '@/components/app/BNavigation';
 export default {
   name: 'App',
+  components: { BNavigation },
 };
 </script>
+
+<style lang="scss" scoped>
+.grid {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 3em;
+
+  & .end {
+    text-align: right;
+  }
+}
+</style>
 
 <style lang="scss">
 body {
