@@ -49,3 +49,80 @@ export default {
   }
 }
 </style>
+
+<style lang="scss">
+body {
+  background-color: $dark-brown;
+  margin: 5em;
+  letter-spacing: 0.03em;
+}
+
+#app {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $yellow;
+}
+
+a {
+  color: $yellow;
+  text-decoration: none;
+  border-bottom: solid 1px $yellow;
+  padding: 0.3em 0;
+  margin: 2em 1em 2em 0;
+  font-size: 1.2em;
+  display: block;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+  color: $white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+input {
+  padding: 0.5em 0.2em;
+  width: 25%;
+  outline: none;
+  border: solid 1px $light-brown;
+  border-radius: 0.1em;
+  background-color: $light-brown;
+  color: $white;
+}
+
+.card {
+  background-color: $white;
+  color: $dark-brown;
+  padding: 1em;
+  margin: 1em 2em 1em 0;
+
+  &.btn {
+    cursor: pointer;
+    &:hover {
+      background-color: $light-brown;
+      color: $white;
+      transition: 300ms;
+      border: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .card {
+    margin: 1em 0;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  body {
+    margin: 2em;
+  }
+}
+</style>
