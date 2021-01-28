@@ -2,48 +2,52 @@
   <div v-if="fetching">{{ t_('fetching') }}</div>
   <div v-else-if="error">{{ t_('fetchError') }}</div>
   <div v-else>
-    <h1>{{ person.name }}</h1>
+    <h1>{{ starship.name }}</h1>
     <b-detail
       :data="[
         {
-          text: 'Año de nacimiento: ',
-          data: person.birth_year,
+          text: 'Model: ',
+          data: starship.model,
         },
         {
-          text: 'Genero: ',
-          data: person.gender,
+          text: 'Starship class: ',
+          data: starship.starship_class,
         },
         {
-          text: 'Color de ojos: ',
-          data: person.eye_color,
+          text: 'Manufacturer: ',
+          data: starship.manufacturer,
         },
         {
-          text: 'Altura: ',
-          data: person.height,
+          text: 'Cost in Credits: ',
+          data: starship.cost_in_credits,
         },
         {
-          text: 'Color de pelo: ',
-          data: person.hair_color,
+          text: 'Length: ',
+          data: starship.length,
         },
         {
-          text: 'Color de piel: ',
-          data: person.skin_color,
+          text: 'Max atmosphering speed: ',
+          data: starship.max_atmosphering_speed,
         },
         {
-          text: 'Películas: ',
-          data: person.films,
+          text: 'Crew: ',
+          data: starship.crew,
         },
         {
-          text: 'Vehiculos: ',
-          data: person.vehicles,
+          text: 'Passengers: ',
+          data: starship.passengers,
         },
         {
-          text: 'Naves: ',
-          data: person.starships,
+          text: 'Megalight per hour: ',
+          data: starship.MGLT,
         },
         {
-          text: 'Planeta natal: ',
-          data: person.homeworld,
+          text: 'Pilots: ',
+          data: starship.pilots,
+        },
+        {
+          text: 'Films: ',
+          data: starship.films,
         },
       ]"
     />
@@ -53,11 +57,11 @@
 <script>
 import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
-import { getPeople } from '@/service/getPeople';
+import { getStarships } from '@/service/getStarships';
 import usei18n from '@/hooks/usei18n';
 import BDetail from '@/components/shared/BDetail';
 export default {
-  name: 'Detail',
+  name: 'StarshipDetail',
   components: {
     BDetail,
   },
@@ -65,16 +69,16 @@ export default {
     const route = useRoute();
     const { t_ } = usei18n();
     const state = reactive({
-      person: {},
+      starship: {},
       error: null,
       fetching: false,
     });
 
     onBeforeMount(() => {
       state.fetching = true;
-      getPeople(route.fullPath.split('/').pop())
+      getStarships(route.fullPath.split('/').pop())
         .then(res => {
-          state.person = res;
+          state.starship = res;
         })
         .catch(err => {
           state.error = err;

@@ -1,6 +1,6 @@
-import { ref } from "vue";
-import es from "@/i18n/es";
-import en from "@/i18n/en";
+import { ref } from 'vue';
+import es from '@/i18n/es';
+import en from '@/i18n/en';
 
 const usei18n = () => {
   const languages = {
@@ -8,16 +8,16 @@ const usei18n = () => {
     en: en,
   };
 
-  const changeLang = (lang) => {
+  const changeLang = lang => {
     i18n.currentLanguage = languages[lang];
   };
 
   const i18n = {
-    currentLanguage: ref(languages["es"]),
+    currentLanguage: ref(languages['en']),
     changeLanguage: changeLang,
   };
 
-  const t_ = (key) => {
+  const t_ = key => {
     return i18n.currentLanguage.value[key];
   };
 

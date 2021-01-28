@@ -1,31 +1,25 @@
 <template>
-  <!-- <router-link :to="{ name: 'Home' }">asdasd</router-link> -->
   <router-view />
-  <!-- <Home /> -->
 </template>
 
 <script>
-import Home from "@/components/view/Home";
 export default {
-  name: "App",
-  components: { Home },
-  setup() {},
+  name: 'App',
 };
 </script>
 
 <style lang="scss">
 body {
   background-color: #181818;
-  margin: 5% 30% 10% 10%;
+  // margin: 5% 30% 10% 10%;
+  margin: 5em;
 }
 
 #app {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // text-align: center;
   color: #e0e07a;
-  // font-size: 2em;
 }
 
 a {

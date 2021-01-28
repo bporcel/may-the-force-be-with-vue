@@ -1,36 +1,42 @@
 <template>
-  <h1>MAY THE FORCE BE WITH VUE</h1>
-  <p>¿Qué has venido a buscar?</p>
-  <router-link
-    :key="key"
-    :to="{ name: option.path }"
-    v-for="(option, key) in options"
-    >{{ option.text }}</router-link
-  >
-  <button v-on:click="changeLang()">en</button>
+  <div class="center">
+    <h1>{{ t_('forceWithVue') }}</h1>
+    <h2>{{ t_('whyYouHere') }}</h2>
+    <router-link
+      :key="key"
+      :to="{ name: option.path }"
+      v-for="(option, key) in options"
+      >{{ option.text }}</router-link
+    >
+  </div>
+  <!-- <button v-on:click="changeLang()">es</button> -->
 </template>
 
 <script>
-import usei18n from "@/hooks/usei18n";
+import usei18n from '@/hooks/usei18n';
 export default {
-  name: "Home",
+  name: 'Home',
   components: {},
   setup() {
-    const { t_, i18n } = usei18n();
+    const { t_ } = usei18n();
 
     const options = [
-      { text: t_("people"), path: "People" },
-      { text: t_("starships"), path: "Starships" },
-      { text: t_("planets"), path: "Planets" },
+      { text: t_('people'), path: 'People' },
+      { text: t_('starships'), path: 'Starships' },
+      { text: t_('planets'), path: 'Planets' },
     ];
 
-    const changeLang = () => {
-      i18n.changeLanguage("en");
-    };
+    // const changeLang = () => {
+    //   i18n.changeLanguage("es");
+    // };
 
-    return { options, changeLang };
+    return { options, t_ };
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.center {
+  text-align: center;
+}
+</style>
