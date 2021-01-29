@@ -20,7 +20,7 @@ export default {
 .loading {
   display: grid;
   background-color: $dark-brown;
-  opacity: 40%;
+  opacity: 60%;
   position: absolute;
   top: 0;
   right: 0;
