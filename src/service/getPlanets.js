@@ -4,8 +4,10 @@ import { mapUrlArrayToStringArray } from '@/service/helpers';
 
 const getPlanets = query => {
   const url = `https://swapi.dev/api/planets/${query}`;
-  return new Promise(async resolve => {
-    const planets = await get(url).then(res => res);
+  return new Promise(async (resolve, reject) => {
+    const planets = await get(url)
+      .then(res => res)
+      .catch(reject);
     mapUrlArrayToStringArray(planets.residents, 'name');
     planets.residents = await Promise.all(planets.residents).then(res => res);
 

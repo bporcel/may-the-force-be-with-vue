@@ -21,7 +21,7 @@
         {{ i }}
       </b-button>
     </div>
-    <div v-else class="no-results">{{ t_('noResults') }}</div>
+    <div v-else class="no-results"><b-error /></div>
   </div>
 </template>
 
@@ -29,11 +29,12 @@
 import { reactive, toRefs } from 'vue';
 import usei18n from '@/hooks/usei18n';
 import BButton from '@/components/atoms/BButton';
+import BError from '@/components/atoms/BError';
 import BCard from '@/components/molecules/BCard';
 import BFilter from '@/components/molecules/BFilter';
 export default {
   name: 'b-card-pagination',
-  components: { BCard, BFilter, BButton },
+  components: { BCard, BFilter, BButton, BError },
   props: {
     records: {
       type: Number,
@@ -98,13 +99,6 @@ export default {
   &.active {
     color: $yellow;
   }
-}
-
-.no-results {
-  padding: 1em;
-  margin: 1em 0;
-  background-color: $light-brown;
-  color: $red;
 }
 
 .grid {

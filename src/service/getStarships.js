@@ -4,8 +4,10 @@ import { mapUrlArrayToStringArray } from '@/service/helpers';
 
 const getStarships = query => {
   const url = `https://swapi.dev/api/starships/${query}`;
-  return new Promise(async resolve => {
-    const starships = await get(url).then(res => res);
+  return new Promise(async (resolve, reject) => {
+    const starships = await get(url)
+      .then(res => res)
+      .catch(reject);
     mapUrlArrayToStringArray(starships.pilots, 'name');
     starships.pilots = await Promise.all(starships.pilots).then(res => res);
 

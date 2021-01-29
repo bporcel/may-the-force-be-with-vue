@@ -1,7 +1,7 @@
 <template>
   <h1>{{ t_('people') }}</h1>
   <div v-if="fetching">{{ t_('fetching') }}</div>
-  <div v-else-if="error">{{ t_('fetchError') }}</div>
+  <div v-else-if="error"><b-error /></div>
   <div v-else>
     <b-card-pagination
       :records="people.count"
@@ -17,10 +17,11 @@ import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAllPeople } from '@/service/getPeople';
 import usei18n from '@/hooks/usei18n';
+import BError from '@/components/atoms/BError';
 import BCardPagination from '@/components/organisms/BCardPagination';
 export default {
   name: 'People',
-  components: { BCardPagination },
+  components: { BCardPagination, BError },
   setup() {
     const { t_ } = usei18n();
     const router = useRouter();

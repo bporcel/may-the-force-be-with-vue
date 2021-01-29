@@ -1,6 +1,6 @@
 <template>
   <div v-if="fetching">{{ t_('fetching') }}</div>
-  <div v-else-if="error">{{ t_('fetchError') }}</div>
+  <div v-else-if="error"><b-error /></div>
   <div v-else>
     <h1>{{ starship.name }}</h1>
     <b-detail
@@ -60,11 +60,13 @@ import { useRoute } from 'vue-router';
 import { getStarships } from '@/service/getStarships';
 import { arrayToString } from '@/service/helpers.js';
 import usei18n from '@/hooks/usei18n';
+import BError from '@/components/atoms/BError';
 import BDetail from '@/components/molecules/BDetail';
 export default {
   name: 'StarshipDetail',
   components: {
     BDetail,
+    BError,
   },
   setup() {
     const route = useRoute();
