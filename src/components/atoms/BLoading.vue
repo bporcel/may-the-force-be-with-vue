@@ -1,7 +1,5 @@
 <template>
-  <div class="loading">
-    <img src="~@/assets/loading.gif" alt="Death star gif" />
-  </div>
+  <p>{{ t_('fetching') }}</p>
 </template>
 
 <script>
@@ -17,21 +15,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.loading {
-  display: grid;
-  background-color: $dark-brown;
-  opacity: 60%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-img {
-  border-radius: 50%;
-  justify-self: center;
-  margin: 2em;
-  align-self: center;
+p {
+  padding: 1em;
+  margin: 1em 0;
+  background-color: $light-brown;
+  color: $blue;
 }
 </style>
