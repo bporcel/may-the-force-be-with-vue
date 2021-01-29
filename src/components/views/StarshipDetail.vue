@@ -81,7 +81,7 @@ export default {
 
     onBeforeMount(() => {
       state.fetching = true;
-      getStarships(route.fullPath.split('/').pop())
+      getStarships(route && route.fullPath.split('/').pop())
         .then(res => {
           res.films = arrayToString(res.films);
           res.pilots = arrayToString(res.pilots);

@@ -77,7 +77,7 @@ export default {
 
     onBeforeMount(() => {
       state.fetching = true;
-      getPlanets(route.fullPath.split('/').pop())
+      getPlanets(route && route.fullPath.split('/').pop())
         .then(res => {
           res.films = arrayToString(res.films);
           res.residents = arrayToString(res.residents);

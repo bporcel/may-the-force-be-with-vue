@@ -21,7 +21,7 @@
         {{ i }}
       </b-button>
     </div>
-    <div v-else class="no-results"><b-error /></div>
+    <div v-else><b-error /></div>
   </div>
 </template>
 
@@ -57,7 +57,7 @@ export default {
     const { t_ } = usei18n();
     const state = reactive({
       currentPage: 1,
-      items: props.data.slice(0, props.perPage),
+      items: props.data && props.data.slice(0, props.perPage),
       filtered: [],
       totalPages: Math.ceil(props.records / props.perPage),
     });

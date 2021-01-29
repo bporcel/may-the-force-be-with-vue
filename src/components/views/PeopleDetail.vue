@@ -81,7 +81,7 @@ export default {
 
     onBeforeMount(() => {
       state.fetching = true;
-      getPeople(route.fullPath.split('/').pop())
+      getPeople(route && route.fullPath.split('/').pop())
         .then(res => {
           state.person = normalizeArrays(res);
         })

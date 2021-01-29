@@ -3,6 +3,7 @@ import BCardPagination from '@/components/organisms/BCardPagination';
 import BFilter from '@/components/molecules/BFilter';
 import BCard from '@/components/molecules/BCard';
 import BButton from '@/components/atoms/BButton';
+import BError from '@/components/atoms/BError';
 
 const factory = props =>
   shallowMount(BCardPagination, {
@@ -27,12 +28,10 @@ describe('BCardPagination', () => {
     expect(wrapper.findComponent(BFilter).exists()).toBe(true);
   });
 
-  it(`Renders div with class 'card' if items.length is 0 or less`, () => {
-    const wrapper = factory(defaultProps);
+  it(`Renders error component if items.length is 0 or less`, () => {
+    const wrapper = factory({ ...defaultProps, data: [] });
 
-    expect(wrapper.findComponent('.card').exists()).toBe(
-      wrapper.vm.items.length <= 0
-    );
+    expect(wrapper.findComponent(BError).exists()).toBe(true);
   });
 
   it('Renders cards according to items length and button according to totalPages', () => {
