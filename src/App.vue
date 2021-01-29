@@ -80,6 +80,7 @@ a {
 
 .question {
   color: $blue;
+  font-weight: bold;
 }
 
 .title {

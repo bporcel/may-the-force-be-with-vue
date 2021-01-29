@@ -80,5 +80,10 @@ export default {
     display: block;
     padding-top: 0.5em;
   }
+  &:hover {
+    & .answer {
+      color: $yellow;
+    }
+  }
 }
 </style>
