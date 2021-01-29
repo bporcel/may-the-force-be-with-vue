@@ -1,5 +1,5 @@
 <template>
-  <div v-if="fetching">{{ t_('fetching') }}</div>
+  <div v-if="fetching"><b-loading /></div>
   <div v-else-if="error"><b-error /></div>
   <div v-else>
     <h1>{{ person.name }}</h1>
@@ -61,12 +61,14 @@ import { getPeople } from '@/service/getPeople';
 import { arrayToString } from '@/service/helpers.js';
 import usei18n from '@/hooks/usei18n';
 import BError from '@/components/atoms/BError';
+import BLoading from '@/components/atoms/BLoading';
 import BDetail from '@/components/molecules/BDetail';
 export default {
   name: 'Detail',
   components: {
     BDetail,
     BError,
+    BLoading,
   },
   setup() {
     const route = useRoute();

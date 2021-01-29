@@ -1,7 +1,7 @@
 <template>
   <h1 class="title">{{ t_('starships') }}</h1>
   <h1 class="question">{{ t_('starshipsQuestion') }}</h1>
-  <div v-if="fetching">{{ t_('fetching') }}</div>
+  <div v-if="fetching"><b-loading /></div>
   <div v-else-if="error"><b-error /></div>
   <div v-else>
     <b-card-pagination
@@ -19,10 +19,11 @@ import { useRouter } from 'vue-router';
 import { getAllStarships } from '@/service/getStarships';
 import usei18n from '@/hooks/usei18n';
 import BError from '@/components/atoms/BError';
+import BLoading from '@/components/atoms/BLoading';
 import BCardPagination from '@/components/organisms/BCardPagination';
 export default {
   name: 'Starships',
-  components: { BCardPagination, BError },
+  components: { BCardPagination, BError, BLoading },
   setup() {
     const { t_ } = usei18n();
     const router = useRouter();
