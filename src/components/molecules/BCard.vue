@@ -1,6 +1,6 @@
 <template>
   <b-button :id="id" class="card" @click="e => handleClick(e.currentTarget.id)">
-    {{ name }}
+    {{ title }}
   </b-button>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'b-card',
   components: { BButton },
   props: {
-    name: {
+    title: {
       type: String,
       required: true,
     },

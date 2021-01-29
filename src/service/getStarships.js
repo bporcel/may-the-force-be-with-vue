@@ -1,14 +1,15 @@
 /* eslint-disable */
-import get from '@/http/get';
+import { get } from '@/service/http';
+import { mapUrlArrayToStringArray } from '@/service/helpers';
 
 const getStarships = query => {
   const url = `https://swapi.dev/api/starships/${query}`;
   return new Promise(async resolve => {
     const starships = await get(url).then(res => res);
-    _mapInfo(starships.pilots, 'name');
+    mapUrlArrayToStringArray(starships.pilots, 'name');
     starships.pilots = await Promise.all(starships.pilots).then(res => res);
 
-    _mapInfo(starships.films, 'title');
+    mapUrlArrayToStringArray(starships.films, 'title');
     starships.films = await Promise.all(starships.films).then(res => res);
 
     resolve(starships);
@@ -29,12 +30,6 @@ const getAllStarships = () => {
       starships.results.push(...tmp.results);
     }
     resolve(starships);
-  });
-};
-
-const _mapInfo = (items, index) => {
-  items.map((item, key) => {
-    items[key] = get(item).then(res => res[index]);
   });
 };
 

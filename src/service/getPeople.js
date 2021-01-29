@@ -1,22 +1,28 @@
 /* eslint-disable */
-import get from '@/http/get';
+import { get } from '@/service/http';
+import { mapUrlArrayToStringArray } from '@/service/helpers';
 
 const getPeople = query => {
   const url = `https://swapi.dev/api/people/${query}`;
   return new Promise(async resolve => {
     const people = await get(url).then(res => res);
-    _mapInfo(people.films, 'title');
+
+    mapUrlArrayToStringArray(people.films, 'title');
     people.films = await Promise.all(people.films).then(res => res);
 
-    _mapInfo(people.vehicles, 'name');
+    mapUrlArrayToStringArray(people.vehicles, 'name');
     people.vehicles = await Promise.all(people.vehicles).then(res => res);
 
-    _mapInfo(people.starships, 'name');
+    mapUrlArrayToStringArray(people.starships, 'name');
     people.starships = await Promise.all(people.starships).then(res => res);
 
     people.homeworld = [people.homeworld];
-    _mapInfo(people.homeworld, 'name');
+    mapUrlArrayToStringArray(people.homeworld, 'name');
     people.homeworld = await Promise.all(people.homeworld).then(res => res);
+
+    people.species = people.species;
+    mapUrlArrayToStringArray(people.species, 'name');
+    people.species = await Promise.all(people.species).then(res => res);
 
     resolve(people);
   });
@@ -28,6 +34,7 @@ const getAllPeople = () => {
     const people = await get(url)
       .then(res => res)
       .catch(reject);
+
     while (people.next) {
       const tmp = await get(people.next)
         .then(res => res)
@@ -35,13 +42,8 @@ const getAllPeople = () => {
       people.next = tmp.next;
       people.results.push(...tmp.results);
     }
-    resolve(people);
-  });
-};
 
-const _mapInfo = (items, index) => {
-  items.map((item, key) => {
-    items[key] = get(item).then(res => res[index]);
+    resolve(people);
   });
 };
 

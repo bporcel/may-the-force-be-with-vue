@@ -6,47 +6,47 @@
     <b-detail
       :data="[
         {
-          text: 'Model: ',
+          text: starship.model && t_('model'),
           data: starship.model,
         },
         {
-          text: 'Starship class: ',
+          text: starship.starship_class && t_('starshipsClass'),
           data: starship.starship_class,
         },
         {
-          text: 'Manufacturer: ',
+          text: starship.manufacturer && t_('manufacturer'),
           data: starship.manufacturer,
         },
         {
-          text: 'Cost in Credits: ',
+          text: starship.cost_in_credits && t_('costCredits'),
           data: starship.cost_in_credits,
         },
         {
-          text: 'Length: ',
+          text: starship.length && t_('length'),
           data: starship.length,
         },
         {
-          text: 'Max atmosphering speed: ',
+          text: starship.max_atmosphering_speed && t_('atmospheringSpeed'),
           data: starship.max_atmosphering_speed,
         },
         {
-          text: 'Crew: ',
+          text: starship.crew && t_('crew'),
           data: starship.crew,
         },
         {
-          text: 'Passengers: ',
+          text: starship.passengers && t_('passengers'),
           data: starship.passengers,
         },
         {
-          text: 'Megalight per hour: ',
+          text: starship.MGLT && t_('mglt'),
           data: starship.MGLT,
         },
         {
-          text: 'Pilots: ',
+          text: starship.pilots && t_('pilots'),
           data: starship.pilots,
         },
         {
-          text: 'Films: ',
+          text: starship.films && t_('films'),
           data: starship.films,
         },
       ]"
@@ -58,6 +58,7 @@
 import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 import { getStarships } from '@/service/getStarships';
+import { arrayToString } from '@/service/helpers.js';
 import usei18n from '@/hooks/usei18n';
 import BDetail from '@/components/molecules/BDetail';
 export default {
@@ -78,6 +79,8 @@ export default {
       state.fetching = true;
       getStarships(route.fullPath.split('/').pop())
         .then(res => {
+          res.films = arrayToString(res.films);
+          res.pilots = arrayToString(res.pilots);
           state.starship = res;
         })
         .catch(err => {

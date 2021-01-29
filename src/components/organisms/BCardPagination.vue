@@ -6,7 +6,7 @@
         <b-card
           :key="key"
           v-for="(item, key) in items"
-          :name="item.name"
+          :title="item.name"
           :id="item.url.split('/')[5]"
           :handleClick="handleClickCard"
         />
@@ -21,12 +21,13 @@
         {{ i }}
       </b-button>
     </div>
-    <div v-else class="card">No results found</div>
+    <div v-else class="no-results">{{ t_('noResults') }}</div>
   </div>
 </template>
 
 <script>
 import { reactive, toRefs } from 'vue';
+import usei18n from '@/hooks/usei18n';
 import BButton from '@/components/atoms/BButton';
 import BCard from '@/components/molecules/BCard';
 import BFilter from '@/components/molecules/BFilter';
@@ -52,6 +53,7 @@ export default {
     },
   },
   setup(props) {
+    const { t_ } = usei18n();
     const state = reactive({
       currentPage: 1,
       items: props.data.slice(0, props.perPage),
@@ -76,18 +78,13 @@ export default {
       const tmp = props.data.filter(result =>
         result.name.toLowerCase().includes(value.toLowerCase())
       );
-      if (value === '') {
-        state.filtered = [];
-        state.totalPages = Math.ceil(props.records / props.perPage);
-      } else if (tmp.length > 0) {
-        state.filtered = tmp;
-        state.totalPages = Math.ceil(tmp.length / props.perPage);
-      }
+      state.filtered = tmp;
+      state.totalPages = Math.ceil(tmp.length / props.perPage);
       state.items = tmp.slice(0, props.perPage);
       state.currentPage = 1;
     };
 
-    return { ...toRefs(state), handleClickButton, handleFilter };
+    return { ...toRefs(state), handleClickButton, handleFilter, t_ };
   },
 };
 </script>
@@ -101,6 +98,13 @@ export default {
   &.active {
     color: $yellow;
   }
+}
+
+.no-results {
+  padding: 1em;
+  margin: 1em 0;
+  background-color: $light-brown;
+  color: $red;
 }
 
 .grid {

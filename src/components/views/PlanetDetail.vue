@@ -6,43 +6,43 @@
     <b-detail
       :data="[
         {
-          text: 'Rotation period: ',
+          text: planet.rotation_period && t_('rotationPeriod'),
           data: planet.rotation_period,
         },
         {
-          text: 'Orbital period: ',
+          text: planet.orbital_period && t_('orbitalPeriod'),
           data: planet.orbital_period,
         },
         {
-          text: 'Diameter: ',
+          text: planet.diameter && t_('diameter'),
           data: planet.diameter,
         },
         {
-          text: 'Climate: ',
+          text: planet.climate && t_('climate'),
           data: planet.climate,
         },
         {
-          text: 'Gravity: ',
+          text: planet.gravity && t_('gravity'),
           data: planet.gravity,
         },
         {
-          text: 'Terrain: ',
+          text: planet.terrain && t_('terrain'),
           data: planet.terrain,
         },
         {
-          text: 'Surface water: ',
+          text: planet.surface_water && t_('surfaceWater'),
           data: planet.surface_water,
         },
         {
-          text: 'Population: ',
+          text: planet.population && t_('population'),
           data: planet.population,
         },
         {
-          text: 'Residents: ',
+          text: planet.residents && t_('residents'),
           data: planet.residents,
         },
         {
-          text: 'Films: ',
+          text: planet.films && t_('films'),
           data: planet.films,
         },
       ]"
@@ -54,6 +54,7 @@
 import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 import { getPlanets } from '@/service/getPlanets';
+import { arrayToString } from '@/service/helpers.js';
 import usei18n from '@/hooks/usei18n';
 import BDetail from '@/components/molecules/BDetail';
 export default {
@@ -74,6 +75,8 @@ export default {
       state.fetching = true;
       getPlanets(route.fullPath.split('/').pop())
         .then(res => {
+          res.films = arrayToString(res.films);
+          res.residents = arrayToString(res.residents);
           state.planet = res;
         })
         .catch(err => {

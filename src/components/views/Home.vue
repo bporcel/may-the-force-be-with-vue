@@ -1,15 +1,15 @@
 <template>
   <div class="subgrid">
     <div>
-      <h1>{{ t_('forceWithVue') }}</h1>
-      <h2>{{ t_('whyYouHere') }}</h2>
+      <h1 class="title">{{ t_('forceWithVue') }}</h1>
+      <h1>{{ t_('whyYouHere') }}</h1>
       <router-link :to="{ name: 'People' }">{{ t_('people') }}</router-link>
       <router-link :to="{ name: 'Starships' }">{{
         t_('starships')
       }}</router-link>
       <router-link :to="{ name: 'Planets' }">{{ t_('planets') }}</router-link>
     </div>
-    <img src="~@/assets/background.png" alt="" />
+    <img src="~@/assets/background.png" alt="Death Star image" />
   </div>
 </template>
 
@@ -26,6 +26,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title {
+  font-size: 3em;
+}
+
 .subgrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -36,7 +40,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1000px) {
   .subgrid {
     text-align: center;
     grid-template-columns: auto;

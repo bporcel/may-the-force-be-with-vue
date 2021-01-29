@@ -10,4 +10,4 @@ const get = url => {
   });
 };
 
-export default get;
+export { get };

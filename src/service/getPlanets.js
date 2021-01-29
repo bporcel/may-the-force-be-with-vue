@@ -1,14 +1,15 @@
 /* eslint-disable */
-import get from '@/http/get';
+import { get } from '@/service/http';
+import { mapUrlArrayToStringArray } from '@/service/helpers';
 
 const getPlanets = query => {
   const url = `https://swapi.dev/api/planets/${query}`;
   return new Promise(async resolve => {
     const planets = await get(url).then(res => res);
-    _mapInfo(planets.residents, 'name');
+    mapUrlArrayToStringArray(planets.residents, 'name');
     planets.residents = await Promise.all(planets.residents).then(res => res);
 
-    _mapInfo(planets.films, 'title');
+    mapUrlArrayToStringArray(planets.films, 'title');
     planets.films = await Promise.all(planets.films).then(res => res);
 
     resolve(planets);
@@ -29,12 +30,6 @@ const getAllPlanets = () => {
       planets.results.push(...tmp.results);
     }
     resolve(planets);
-  });
-};
-
-const _mapInfo = (items, index) => {
-  items.map((item, key) => {
-    items[key] = get(item).then(res => res[index]);
   });
 };
 

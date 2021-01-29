@@ -5,7 +5,9 @@
     v-for="(line, key) in data"
     @click="handleNavigation(line)"
   >
-    {{ mapRoutes[line] && mapRoutes[line].question }}
+    <span class="question">{{
+      mapRoutes[line] && mapRoutes[line].question
+    }}</span>
     <span class="answer">{{ mapRoutes[line] && mapRoutes[line].answer }}</span>
   </b-button>
 </template>
@@ -13,6 +15,7 @@
 <script>
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import usei18n from '@/hooks/usei18n';
 import BButton from '@/components/atoms/BButton';
 
 export default {
@@ -21,23 +24,24 @@ export default {
     BButton,
   },
   setup() {
+    const { t_ } = usei18n();
     const router = useRouter();
     const route = router && router.currentRoute;
     const data = ref([]);
 
     const mapRoutes = {
-      '/': { question: 'Why are you here?', answer: 'Change answer' },
+      '/': { question: t_('whyYouHere'), answer: t_('changeAnswer') },
       '/people': {
         question: 'Who are you looking for?',
-        answer: 'Change answer',
+        answer: t_('changeAnswer'),
       },
       '/planets': {
-        question: 'What planet are you looking for?',
-        answer: 'Change answer',
+        question: t_('planetQuestion'),
+        answer: t_('changeAnswer'),
       },
       '/starships': {
-        question: 'Which starship are you looking for?',
-        answer: 'Change answer',
+        question: t_('starshipsQuestion'),
+        answer: t_('changeAnswer'),
       },
     };
 
@@ -59,7 +63,7 @@ export default {
       router.push(line);
     };
 
-    return { data, route, handleNavigation, mapRoutes };
+    return { data, handleNavigation, mapRoutes };
   },
 };
 </script>

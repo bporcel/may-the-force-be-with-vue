@@ -11,7 +11,7 @@
 
 <script>
 import { useRoute } from 'vue-router';
-import BNavigation from '@/components/atoms/BNavigation';
+import BNavigation from '@/components/molecules/BNavigation';
 export default {
   name: 'App',
   components: { BNavigation },
@@ -36,7 +36,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 1000px) {
   .grid {
     grid-template-columns: auto;
     grid-template-rows: auto 1fr;
@@ -84,7 +84,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 1000px) {
   body {
     margin: 2em;
   }

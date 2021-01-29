@@ -6,43 +6,47 @@
     <b-detail
       :data="[
         {
-          text: person.birth_year && 'Año de nacimiento: ',
+          text: person.birth_year && t_('birthYear'),
           data: person.birth_year,
         },
         {
-          text: person.gender && 'Genero: ',
+          text: person.species && t_('species'),
+          data: person.species,
+        },
+        {
+          text: person.gender && t_('gender'),
           data: person.gender,
         },
         {
-          text: person.eye_color && 'Color de ojos: ',
+          text: person.eye_color && t_('eyeColor'),
           data: person.eye_color,
         },
         {
-          text: person.height && 'Altura: ',
+          text: person.height && t_('height'),
           data: person.height,
         },
         {
-          text: person.hair_color && 'Color de pelo: ',
+          text: person.hair_color && t_('hairColor'),
           data: person.hair_color,
         },
         {
-          text: person.skin_color && 'Color de piel: ',
+          text: person.skin_color && t_('skinColor'),
           data: person.skin_color,
         },
         {
-          text: person.films && 'Películas: ',
+          text: person.films && t_('films'),
           data: person.films,
         },
         {
-          text: person.vehicles && 'Vehiculos: ',
+          text: person.vehicles && t_('vehicles'),
           data: person.vehicles,
         },
         {
-          text: person.starships && 'Naves: ',
+          text: person.starships && t_('starships'),
           data: person.starships,
         },
         {
-          text: person.homeworld && 'Planeta natal: ',
+          text: person.homeworld && t_('homeworld'),
           data: person.homeworld,
         },
       ]"
@@ -54,6 +58,7 @@
 import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 import { getPeople } from '@/service/getPeople';
+import { arrayToString } from '@/service/helpers.js';
 import usei18n from '@/hooks/usei18n';
 import BDetail from '@/components/molecules/BDetail';
 export default {
@@ -74,11 +79,7 @@ export default {
       state.fetching = true;
       getPeople(route.fullPath.split('/').pop())
         .then(res => {
-          res.films = arrayToString(res.films);
-          res.homeworld = arrayToString(res.homeworld);
-          res.starships = arrayToString(res.starships);
-          res.vehicles = arrayToString(res.vehicles);
-          state.person = res;
+          state.person = normalizeArrays(res);
         })
         .catch(err => {
           state.error = err;
@@ -88,12 +89,13 @@ export default {
         });
     });
 
-    const arrayToString = array => {
-      let str = '';
-      array.forEach((item, i) => {
-        i === array.length - 1 ? (str += item) : (str += `${item}, `);
-      });
-      return str;
+    const normalizeArrays = res => {
+      res.films = arrayToString(res.films);
+      res.homeworld = arrayToString(res.homeworld);
+      res.starships = arrayToString(res.starships);
+      res.vehicles = arrayToString(res.vehicles);
+      res.species = arrayToString(res.species);
+      return res;
     };
 
     return { ...toRefs(state), t_ };

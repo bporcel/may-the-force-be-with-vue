@@ -4,7 +4,6 @@ import BFilter from '@/components/molecules/BFilter';
 import BCard from '@/components/molecules/BCard';
 import BButton from '@/components/atoms/BButton';
 
-
 const factory = props =>
   shallowMount(BCardPagination, {
     props: props,
@@ -42,7 +41,9 @@ describe('BCardPagination', () => {
     expect(wrapper.findAllComponents(BCard)).toHaveLength(
       wrapper.vm.items.length
     );
-    expect(wrapper.findAllComponents(BButton)).toHaveLength(wrapper.vm.totalPages);
+    expect(wrapper.findAllComponents(BButton)).toHaveLength(
+      wrapper.vm.totalPages
+    );
   });
 
   it('Click on page btn should change currentPage to given id and slice data', () => {
@@ -57,9 +58,8 @@ describe('BCardPagination', () => {
   it('Handle filter', () => {
     const wrapper = factory(defaultProps);
 
-    wrapper.vm.handleFilter('');
-    expect(wrapper.vm.filtered.length).toBe(0);
-    expect(wrapper.vm.items.length).not.toBe(0);
+    wrapper.vm.handleFilter('1');
+    expect(wrapper.vm.filtered).toStrictEqual([wrapper.props().data[1]]);
     expect(wrapper.vm.currentPage).toBe(1);
   });
 });
