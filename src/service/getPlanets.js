@@ -25,7 +25,7 @@ const getAllPlanets = () => {
       .then(res => res)
       .catch(reject);
     while (planets.next) {
-      const tmp = await get(planets.next.replace('http', 'https'))
+      const tmp = await get(planets.next)
         .then(res => res)
         .catch(reject);
       planets.next = tmp.next;

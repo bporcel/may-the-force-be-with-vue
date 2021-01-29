@@ -38,7 +38,7 @@ const getAllPeople = () => {
       .catch(reject);
 
     while (people.next) {
-      const tmp = await get(people.next.replace('http', 'https'))
+      const tmp = await get(people.next)
         .then(res => res)
         .catch(reject);
       people.next = tmp.next;
