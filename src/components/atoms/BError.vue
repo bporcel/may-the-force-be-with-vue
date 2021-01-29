@@ -1,5 +1,5 @@
 <template>
-  <p>{{ i18n.t_('error') }}</p>
+  <p>{{ i18n && i18n.t_('error') }}</p>
 </template>
 
 <script>

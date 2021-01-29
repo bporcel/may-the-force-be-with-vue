@@ -6,47 +6,47 @@
     <b-detail
       :data="[
         {
-          text: person.birth_year && i18n.t_('birthYear'),
+          text: person.birth_year && i18n && i18n.t_('birthYear'),
           data: person.birth_year,
         },
         {
-          text: person.species && i18n.t_('species'),
+          text: person.species && i18n && i18n.t_('species'),
           data: person.species,
         },
         {
-          text: person.gender && i18n.t_('gender'),
+          text: person.gender && i18n && i18n.t_('gender'),
           data: person.gender,
         },
         {
-          text: person.eye_color && i18n.t_('eyeColor'),
+          text: person.eye_color && i18n && i18n.t_('eyeColor'),
           data: person.eye_color,
         },
         {
-          text: person.height && i18n.t_('height'),
+          text: person.height && i18n && i18n.t_('height'),
           data: person.height,
         },
         {
-          text: person.hair_color && i18n.t_('hairColor'),
+          text: person.hair_color && i18n && i18n.t_('hairColor'),
           data: person.hair_color,
         },
         {
-          text: person.skin_color && i18n.t_('skinColor'),
+          text: person.skin_color && i18n && i18n.t_('skinColor'),
           data: person.skin_color,
         },
         {
-          text: person.films && i18n.t_('films'),
+          text: person.films && i18n && i18n.t_('films'),
           data: person.films,
         },
         {
-          text: person.vehicles && i18n.t_('vehicles'),
+          text: person.vehicles && i18n && i18n.t_('vehicles'),
           data: person.vehicles,
         },
         {
-          text: person.starships && i18n.t_('starships'),
+          text: person.starships && i18n && i18n.t_('starships'),
           data: person.starships,
         },
         {
-          text: person.homeworld && i18n.t_('homeworld'),
+          text: person.homeworld && i18n && i18n.t_('homeworld'),
           data: person.homeworld,
         },
       ]"

@@ -1,6 +1,6 @@
 <template>
-  <h1 class="title">{{ i18n.t_('starships') }}</h1>
-  <h1 class="question">{{ i18n.t_('starshipsQuestion') }}</h1>
+  <h1 class="title">{{ i18n && i18n.t_('starships') }}</h1>
+  <h1 class="question">{{ i18n && i18n.t_('starshipsQuestion') }}</h1>
   <div v-if="fetching"><b-loading /></div>
   <div v-else-if="error"><b-error /></div>
   <div v-else>

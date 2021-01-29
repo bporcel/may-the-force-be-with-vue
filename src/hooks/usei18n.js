@@ -18,7 +18,7 @@ const provideI18n = i18nConfig => {
 const useI18n = () => {
   const i18n = inject(i18nSymbol);
   if (!i18n) {
-    throw new Error('No i18n provided');
+    console.log('No i18n provided');
   }
   return i18n;
 };

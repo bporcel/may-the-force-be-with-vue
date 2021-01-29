@@ -1,16 +1,16 @@
 <template>
   <div class="subgrid">
     <div>
-      <h1 class="title">{{ i18n.t_('forceWithVue') }}</h1>
-      <h1 class="question">{{ i18n.t_('whyYouHere') }}</h1>
+      <h1 class="title">{{ i18n && i18n.t_('forceWithVue') }}</h1>
+      <h1 class="question">{{ i18n && i18n.t_('whyYouHere') }}</h1>
       <router-link :to="{ name: 'People' }">{{
-        i18n.t_('people')
+        i18n && i18n.t_('people')
       }}</router-link>
       <router-link :to="{ name: 'Starships' }">{{
-        i18n.t_('starships')
+        i18n && i18n.t_('starships')
       }}</router-link>
       <router-link :to="{ name: 'Planets' }">{{
-        i18n.t_('planets')
+        i18n && i18n.t_('planets')
       }}</router-link>
     </div>
     <img src="~@/assets/background.png" alt="Death Star image" />

@@ -1,6 +1,6 @@
 <template>
   <button>
-    <slot>{{ i18n.t_('default') }}</slot>
+    <slot>{{ i18n && i18n.t_('default') }}</slot>
   </button>
 </template>
 

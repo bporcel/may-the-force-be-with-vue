@@ -6,43 +6,43 @@
     <b-detail
       :data="[
         {
-          text: planet.rotation_period && i18n.t_('rotationPeriod'),
+          text: planet.rotation_period && i18n && i18n.t_('rotationPeriod'),
           data: planet.rotation_period,
         },
         {
-          text: planet.orbital_period && i18n.t_('orbitalPeriod'),
+          text: planet.orbital_period && i18n && i18n.t_('orbitalPeriod'),
           data: planet.orbital_period,
         },
         {
-          text: planet.diameter && i18n.t_('diameter'),
+          text: planet.diameter && i18n && i18n.t_('diameter'),
           data: planet.diameter,
         },
         {
-          text: planet.climate && i18n.t_('climate'),
+          text: planet.climate && i18n && i18n.t_('climate'),
           data: planet.climate,
         },
         {
-          text: planet.gravity && i18n.t_('gravity'),
+          text: planet.gravity && i18n && i18n.t_('gravity'),
           data: planet.gravity,
         },
         {
-          text: planet.terrain && i18n.t_('terrain'),
+          text: planet.terrain && i18n && i18n.t_('terrain'),
           data: planet.terrain,
         },
         {
-          text: planet.surface_water && i18n.t_('surfaceWater'),
+          text: planet.surface_water && i18n && i18n.t_('surfaceWater'),
           data: planet.surface_water,
         },
         {
-          text: planet.population && i18n.t_('population'),
+          text: planet.population && i18n && i18n.t_('population'),
           data: planet.population,
         },
         {
-          text: planet.residents && i18n.t_('residents'),
+          text: planet.residents && i18n && i18n.t_('residents'),
           data: planet.residents,
         },
         {
-          text: planet.films && i18n.t_('films'),
+          text: planet.films && i18n && i18n.t_('films'),
           data: planet.films,
         },
       ]"

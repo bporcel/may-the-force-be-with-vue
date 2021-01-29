@@ -30,18 +30,21 @@ export default {
     const data = ref([]);
 
     const mapRoutes = {
-      '/': { question: i18n.t_('whyYouHere'), answer: i18n.t_('changeAnswer') },
+      '/': {
+        question: i18n && i18n.t_('whyYouHere'),
+        answer: i18n && i18n.t_('changeAnswer'),
+      },
       '/people': {
-        question: i18n.t_('peopleQuestion'),
-        answer: i18n.t_('changeAnswer'),
+        question: i18n && i18n.t_('peopleQuestion'),
+        answer: i18n && i18n.t_('changeAnswer'),
       },
       '/planets': {
-        question: i18n.t_('planetQuestion'),
-        answer: i18n.t_('changeAnswer'),
+        question: i18n && i18n.t_('planetQuestion'),
+        answer: i18n && i18n.t_('changeAnswer'),
       },
       '/starships': {
-        question: i18n.t_('starshipsQuestion'),
-        answer: i18n.t_('changeAnswer'),
+        question: i18n && i18n.t_('starshipsQuestion'),
+        answer: i18n && i18n.t_('changeAnswer'),
       },
     };
 

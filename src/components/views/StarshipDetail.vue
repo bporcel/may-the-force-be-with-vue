@@ -6,47 +6,50 @@
     <b-detail
       :data="[
         {
-          text: starship.model && i18n.t_('model'),
+          text: starship.model && i18n && i18n.t_('model'),
           data: starship.model,
         },
         {
-          text: starship.starship_class && i18n.t_('starshipsClass'),
+          text: starship.starship_class && i18n && i18n.t_('starshipsClass'),
           data: starship.starship_class,
         },
         {
-          text: starship.manufacturer && i18n.t_('manufacturer'),
+          text: starship.manufacturer && i18n && i18n.t_('manufacturer'),
           data: starship.manufacturer,
         },
         {
-          text: starship.cost_in_credits && i18n.t_('costCredits'),
+          text: starship.cost_in_credits && i18n && i18n.t_('costCredits'),
           data: starship.cost_in_credits,
         },
         {
-          text: starship.length && i18n.t_('length'),
+          text: starship.length && i18n && i18n.t_('length'),
           data: starship.length,
         },
         {
-          text: starship.max_atmosphering_speed && i18n.t_('atmospheringSpeed'),
+          text:
+            starship.max_atmosphering_speed &&
+            i18n &&
+            i18n.t_('atmospheringSpeed'),
           data: starship.max_atmosphering_speed,
         },
         {
-          text: starship.crew && i18n.t_('crew'),
+          text: starship.crew && i18n && i18n.t_('crew'),
           data: starship.crew,
         },
         {
-          text: starship.passengers && i18n.t_('passengers'),
+          text: starship.passengers && i18n && i18n.t_('passengers'),
           data: starship.passengers,
         },
         {
-          text: starship.MGLT && i18n.t_('mglt'),
+          text: starship.MGLT && i18n && i18n.t_('mglt'),
           data: starship.MGLT,
         },
         {
-          text: starship.pilots && i18n.t_('pilots'),
+          text: starship.pilots && i18n && i18n.t_('pilots'),
           data: starship.pilots,
         },
         {
-          text: starship.films && i18n.t_('films'),
+          text: starship.films && i18n && i18n.t_('films'),
           data: starship.films,
         },
       ]"

@@ -2,7 +2,7 @@
   <div>
     <b-input
       @input="e => handleFilter(e.target.value)"
-      :placeholder="i18n.t_('filterPlaceholder')"
+      :placeholder="i18n && i18n.t_('filterPlaceholder')"
     />
     <img src="~@/assets/search.png" alt="search icon" />
   </div>
