@@ -7,7 +7,7 @@
 <script>
 import { useI18n } from '@/hooks/usei18n';
 export default {
-  name: 'b-input',
+  name: 'b-button',
   setup() {
     const i18n = useI18n();
 

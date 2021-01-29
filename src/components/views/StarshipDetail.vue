@@ -33,20 +33,20 @@
           data: starship.max_atmosphering_speed,
         },
         {
-          text: starship.crew && i18n && i18n.t_('crew'),
-          data: starship.crew,
-        },
-        {
-          text: starship.passengers && i18n && i18n.t_('passengers'),
-          data: starship.passengers,
-        },
-        {
           text: starship.MGLT && i18n && i18n.t_('mglt'),
           data: starship.MGLT,
         },
         {
+          text: starship.crew && i18n && i18n.t_('crew'),
+          data: starship.crew,
+        },
+        {
           text: starship.pilots && i18n && i18n.t_('pilots'),
           data: starship.pilots,
+        },
+        {
+          text: starship.passengers && i18n && i18n.t_('passengers'),
+          data: starship.passengers,
         },
         {
           text: starship.films && i18n && i18n.t_('films'),

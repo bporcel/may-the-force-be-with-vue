@@ -18,12 +18,16 @@
           data: person.gender,
         },
         {
-          text: person.eye_color && i18n && i18n.t_('eyeColor'),
-          data: person.eye_color,
+          text: person.homeworld && i18n && i18n.t_('homeworld'),
+          data: person.homeworld,
         },
         {
           text: person.height && i18n && i18n.t_('height'),
           data: person.height,
+        },
+        {
+          text: person.eye_color && i18n && i18n.t_('eyeColor'),
+          data: person.eye_color,
         },
         {
           text: person.hair_color && i18n && i18n.t_('hairColor'),
@@ -34,10 +38,6 @@
           data: person.skin_color,
         },
         {
-          text: person.films && i18n && i18n.t_('films'),
-          data: person.films,
-        },
-        {
           text: person.vehicles && i18n && i18n.t_('vehicles'),
           data: person.vehicles,
         },
@@ -46,8 +46,8 @@
           data: person.starships,
         },
         {
-          text: person.homeworld && i18n && i18n.t_('homeworld'),
-          data: person.homeworld,
+          text: person.films && i18n && i18n.t_('films'),
+          data: person.films,
         },
       ]"
     />
