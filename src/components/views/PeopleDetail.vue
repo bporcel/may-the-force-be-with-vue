@@ -6,47 +6,47 @@
     <b-detail
       :data="[
         {
-          text: person.birth_year && t_('birthYear'),
+          text: person.birth_year && i18n.t_('birthYear'),
           data: person.birth_year,
         },
         {
-          text: person.species && t_('species'),
+          text: person.species && i18n.t_('species'),
           data: person.species,
         },
         {
-          text: person.gender && t_('gender'),
+          text: person.gender && i18n.t_('gender'),
           data: person.gender,
         },
         {
-          text: person.eye_color && t_('eyeColor'),
+          text: person.eye_color && i18n.t_('eyeColor'),
           data: person.eye_color,
         },
         {
-          text: person.height && t_('height'),
+          text: person.height && i18n.t_('height'),
           data: person.height,
         },
         {
-          text: person.hair_color && t_('hairColor'),
+          text: person.hair_color && i18n.t_('hairColor'),
           data: person.hair_color,
         },
         {
-          text: person.skin_color && t_('skinColor'),
+          text: person.skin_color && i18n.t_('skinColor'),
           data: person.skin_color,
         },
         {
-          text: person.films && t_('films'),
+          text: person.films && i18n.t_('films'),
           data: person.films,
         },
         {
-          text: person.vehicles && t_('vehicles'),
+          text: person.vehicles && i18n.t_('vehicles'),
           data: person.vehicles,
         },
         {
-          text: person.starships && t_('starships'),
+          text: person.starships && i18n.t_('starships'),
           data: person.starships,
         },
         {
-          text: person.homeworld && t_('homeworld'),
+          text: person.homeworld && i18n.t_('homeworld'),
           data: person.homeworld,
         },
       ]"
@@ -59,7 +59,7 @@ import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 import { getPeople } from '@/service/getPeople';
 import { arrayToString } from '@/service/helpers.js';
-import usei18n from '@/hooks/usei18n';
+import { useI18n } from '@/hooks/usei18n';
 import BError from '@/components/atoms/BError';
 import BLoading from '@/components/atoms/BLoading';
 import BDetail from '@/components/molecules/BDetail';
@@ -72,7 +72,7 @@ export default {
   },
   setup() {
     const route = useRoute();
-    const { t_ } = usei18n();
+    const i18n = useI18n();
     const state = reactive({
       person: {},
       error: null,
@@ -102,7 +102,7 @@ export default {
       return res;
     };
 
-    return { ...toRefs(state), t_ };
+    return { ...toRefs(state), i18n };
   },
 };
 </script>

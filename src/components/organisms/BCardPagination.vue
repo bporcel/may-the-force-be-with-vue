@@ -27,7 +27,6 @@
 
 <script>
 import { reactive, toRefs } from 'vue';
-import usei18n from '@/hooks/usei18n';
 import BButton from '@/components/atoms/BButton';
 import BError from '@/components/atoms/BError';
 import BCard from '@/components/molecules/BCard';
@@ -54,7 +53,6 @@ export default {
     },
   },
   setup(props) {
-    const { t_ } = usei18n();
     const state = reactive({
       currentPage: 1,
       items: props.data && props.data.slice(0, props.perPage),
@@ -85,7 +83,7 @@ export default {
       state.currentPage = 1;
     };
 
-    return { ...toRefs(state), handleClickButton, handleFilter, t_ };
+    return { ...toRefs(state), handleClickButton, handleFilter };
   },
 };
 </script>

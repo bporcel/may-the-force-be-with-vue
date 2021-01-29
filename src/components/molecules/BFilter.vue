@@ -1,12 +1,15 @@
 <template>
-  <b-input
-    @input="e => handleFilter(e.target.value)"
-    :placeholder="t_('filterPlaceholder')"
-  />
+  <div>
+    <b-input
+      @input="e => handleFilter(e.target.value)"
+      :placeholder="i18n.t_('filterPlaceholder')"
+    />
+    <img src="~@/assets/search.png" alt="search icon" />
+  </div>
 </template>
 
 <script>
-import usei18n from '@/hooks/usei18n';
+import { useI18n } from '@/hooks/usei18n';
 import BInput from '@/components/atoms/BInput';
 export default {
   name: 'b-filter',
@@ -18,9 +21,19 @@ export default {
     },
   },
   setup() {
-    const { t_ } = usei18n();
+    const i18n = useI18n();
 
-    return { t_ };
+    return { i18n };
   },
 };
 </script>
+
+<style lang="scss" scoped>
+div {
+  & img {
+    width: 2em;
+    margin: 0 1em;
+    vertical-align: middle;
+  }
+}
+</style>

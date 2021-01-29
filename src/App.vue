@@ -11,12 +11,21 @@
 
 <script>
 import { useRoute } from 'vue-router';
+import { provideI18n } from '@/hooks/usei18n';
+import en from '@/i18n/en';
 import BNavigation from '@/components/molecules/BNavigation';
 export default {
   name: 'App',
   components: { BNavigation },
   setup() {
     const route = useRoute();
+
+    provideI18n({
+      locale: 'en',
+      messages: {
+        en: en,
+      },
+    });
 
     return { route };
   },

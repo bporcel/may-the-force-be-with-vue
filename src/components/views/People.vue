@@ -1,6 +1,6 @@
 <template>
-  <h1 class="title">{{ t_('people') }}</h1>
-  <h1 class="question">{{ t_('peopleQuestion') }}</h1>
+  <h1 class="title">{{ i18n.t_('people') }}</h1>
+  <h1 class="question">{{ i18n.t_('peopleQuestion') }}</h1>
   <div v-if="fetching"><b-loading /></div>
   <div v-else-if="error"><b-error /></div>
   <div v-else>
@@ -17,7 +17,7 @@
 import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAllPeople } from '@/service/getPeople';
-import usei18n from '@/hooks/usei18n';
+import { useI18n } from '@/hooks/usei18n';
 import BError from '@/components/atoms/BError';
 import BLoading from '@/components/atoms/BLoading';
 import BCardPagination from '@/components/organisms/BCardPagination';
@@ -25,7 +25,7 @@ export default {
   name: 'People',
   components: { BCardPagination, BError, BLoading },
   setup() {
-    const { t_ } = usei18n();
+    const i18n = useI18n();
     const router = useRouter();
     const state = reactive({
       people: [],
@@ -54,7 +54,7 @@ export default {
     return {
       ...toRefs(state),
       goToDetail,
-      t_,
+      i18n,
     };
   },
 };

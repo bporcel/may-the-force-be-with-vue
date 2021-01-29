@@ -6,43 +6,43 @@
     <b-detail
       :data="[
         {
-          text: planet.rotation_period && t_('rotationPeriod'),
+          text: planet.rotation_period && i18n.t_('rotationPeriod'),
           data: planet.rotation_period,
         },
         {
-          text: planet.orbital_period && t_('orbitalPeriod'),
+          text: planet.orbital_period && i18n.t_('orbitalPeriod'),
           data: planet.orbital_period,
         },
         {
-          text: planet.diameter && t_('diameter'),
+          text: planet.diameter && i18n.t_('diameter'),
           data: planet.diameter,
         },
         {
-          text: planet.climate && t_('climate'),
+          text: planet.climate && i18n.t_('climate'),
           data: planet.climate,
         },
         {
-          text: planet.gravity && t_('gravity'),
+          text: planet.gravity && i18n.t_('gravity'),
           data: planet.gravity,
         },
         {
-          text: planet.terrain && t_('terrain'),
+          text: planet.terrain && i18n.t_('terrain'),
           data: planet.terrain,
         },
         {
-          text: planet.surface_water && t_('surfaceWater'),
+          text: planet.surface_water && i18n.t_('surfaceWater'),
           data: planet.surface_water,
         },
         {
-          text: planet.population && t_('population'),
+          text: planet.population && i18n.t_('population'),
           data: planet.population,
         },
         {
-          text: planet.residents && t_('residents'),
+          text: planet.residents && i18n.t_('residents'),
           data: planet.residents,
         },
         {
-          text: planet.films && t_('films'),
+          text: planet.films && i18n.t_('films'),
           data: planet.films,
         },
       ]"
@@ -55,7 +55,7 @@ import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 import { getPlanets } from '@/service/getPlanets';
 import { arrayToString } from '@/service/helpers.js';
-import usei18n from '@/hooks/usei18n';
+import { useI18n } from '@/hooks/usei18n';
 import BError from '@/components/atoms/BError';
 import BLoading from '@/components/atoms/BLoading';
 import BDetail from '@/components/molecules/BDetail';
@@ -68,7 +68,7 @@ export default {
   },
   setup() {
     const route = useRoute();
-    const { t_ } = usei18n();
+    const i18n = useI18n();
     const state = reactive({
       planet: {},
       error: null,
@@ -91,7 +91,7 @@ export default {
         });
     });
 
-    return { ...toRefs(state), t_ };
+    return { ...toRefs(state), i18n };
   },
 };
 </script>

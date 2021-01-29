@@ -1,17 +1,17 @@
 <template>
   <button>
-    <slot>{{ t_('default') }}</slot>
+    <slot>{{ i18n.t_('default') }}</slot>
   </button>
 </template>
 
 <script>
-import usei18n from '@/hooks/usei18n';
+import { useI18n } from '@/hooks/usei18n';
 export default {
   name: 'b-input',
   setup() {
-    const { t_ } = usei18n();
+    const i18n = useI18n();
 
-    return { t_ };
+    return { i18n };
   },
 };
 </script>

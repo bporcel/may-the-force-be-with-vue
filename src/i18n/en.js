@@ -11,7 +11,7 @@ const en = {
   eyeColor: 'Eye color: ',
   fetching: 'Using the force',
   films: 'Films: ',
-  filterPlaceholder: 'Use the force to find what you are looking for...',
+  filterPlaceholder: 'Use the force to filter...',
   forceWithVue: 'May the force be with VUE',
   gender: 'Gender: ',
   gravity: 'Gravity: ',

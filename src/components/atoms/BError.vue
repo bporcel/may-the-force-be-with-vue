@@ -1,15 +1,15 @@
 <template>
-  <p>{{ t_('error') }}</p>
+  <p>{{ i18n.t_('error') }}</p>
 </template>
 
 <script>
-import usei18n from '@/hooks/usei18n';
+import { useI18n } from '@/hooks/usei18n';
 export default {
   name: 'b-error',
   setup() {
-    const { t_ } = usei18n();
+    const i18n = useI18n();
 
-    return { t_ };
+    return { i18n };
   },
 };
 </script>

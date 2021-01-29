@@ -15,7 +15,7 @@
 <script>
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
-import usei18n from '@/hooks/usei18n';
+import { useI18n } from '@/hooks/usei18n';
 import BButton from '@/components/atoms/BButton';
 
 export default {
@@ -24,24 +24,24 @@ export default {
     BButton,
   },
   setup() {
-    const { t_ } = usei18n();
+    const i18n = useI18n();
     const router = useRouter();
     const route = router && router.currentRoute;
     const data = ref([]);
 
     const mapRoutes = {
-      '/': { question: t_('whyYouHere'), answer: t_('changeAnswer') },
+      '/': { question: i18n.t_('whyYouHere'), answer: i18n.t_('changeAnswer') },
       '/people': {
-        question: t_('peopleQuestion'),
-        answer: t_('changeAnswer'),
+        question: i18n.t_('peopleQuestion'),
+        answer: i18n.t_('changeAnswer'),
       },
       '/planets': {
-        question: t_('planetQuestion'),
-        answer: t_('changeAnswer'),
+        question: i18n.t_('planetQuestion'),
+        answer: i18n.t_('changeAnswer'),
       },
       '/starships': {
-        question: t_('starshipsQuestion'),
-        answer: t_('changeAnswer'),
+        question: i18n.t_('starshipsQuestion'),
+        answer: i18n.t_('changeAnswer'),
       },
     };
 

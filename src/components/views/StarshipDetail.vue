@@ -6,47 +6,47 @@
     <b-detail
       :data="[
         {
-          text: starship.model && t_('model'),
+          text: starship.model && i18n.t_('model'),
           data: starship.model,
         },
         {
-          text: starship.starship_class && t_('starshipsClass'),
+          text: starship.starship_class && i18n.t_('starshipsClass'),
           data: starship.starship_class,
         },
         {
-          text: starship.manufacturer && t_('manufacturer'),
+          text: starship.manufacturer && i18n.t_('manufacturer'),
           data: starship.manufacturer,
         },
         {
-          text: starship.cost_in_credits && t_('costCredits'),
+          text: starship.cost_in_credits && i18n.t_('costCredits'),
           data: starship.cost_in_credits,
         },
         {
-          text: starship.length && t_('length'),
+          text: starship.length && i18n.t_('length'),
           data: starship.length,
         },
         {
-          text: starship.max_atmosphering_speed && t_('atmospheringSpeed'),
+          text: starship.max_atmosphering_speed && i18n.t_('atmospheringSpeed'),
           data: starship.max_atmosphering_speed,
         },
         {
-          text: starship.crew && t_('crew'),
+          text: starship.crew && i18n.t_('crew'),
           data: starship.crew,
         },
         {
-          text: starship.passengers && t_('passengers'),
+          text: starship.passengers && i18n.t_('passengers'),
           data: starship.passengers,
         },
         {
-          text: starship.MGLT && t_('mglt'),
+          text: starship.MGLT && i18n.t_('mglt'),
           data: starship.MGLT,
         },
         {
-          text: starship.pilots && t_('pilots'),
+          text: starship.pilots && i18n.t_('pilots'),
           data: starship.pilots,
         },
         {
-          text: starship.films && t_('films'),
+          text: starship.films && i18n.t_('films'),
           data: starship.films,
         },
       ]"
@@ -59,7 +59,7 @@ import { onBeforeMount, reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 import { getStarships } from '@/service/getStarships';
 import { arrayToString } from '@/service/helpers.js';
-import usei18n from '@/hooks/usei18n';
+import { useI18n } from '@/hooks/usei18n';
 import BError from '@/components/atoms/BError';
 import BLoading from '@/components/atoms/BLoading';
 import BDetail from '@/components/molecules/BDetail';
@@ -72,7 +72,7 @@ export default {
   },
   setup() {
     const route = useRoute();
-    const { t_ } = usei18n();
+    const i18n = useI18n();
     const state = reactive({
       starship: {},
       error: null,
@@ -95,7 +95,7 @@ export default {
         });
     });
 
-    return { ...toRefs(state), t_ };
+    return { ...toRefs(state), i18n };
   },
 };
 </script>
