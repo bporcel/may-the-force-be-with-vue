@@ -26,18 +26,6 @@ Run tests
 npm run test
 ```
 
-Lint files
-
-```
-npm run lint
-```
-
-Prettier files
-
-```
-npm run prettier
-```
-
 ## Docker
 
 Build image
@@ -50,4 +38,18 @@ Run image
 
 ```
 docker run -p 8080:8080 [tag]
+```
+
+## Lint and Prettier
+
+Lint all files
+
+```
+npm run lint
+```
+
+Prettier all files
+
+```
+npm run prettier
 ```
