@@ -2,7 +2,7 @@
   <div class="subgrid">
     <div>
       <h1 class="title">{{ t_('forceWithVue') }}</h1>
-      <h1>{{ t_('whyYouHere') }}</h1>
+      <h1 class="question">{{ t_('whyYouHere') }}</h1>
       <router-link :to="{ name: 'People' }">{{ t_('people') }}</router-link>
       <router-link :to="{ name: 'Starships' }">{{
         t_('starships')
@@ -26,10 +26,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  font-size: 3em;
-}
-
 .subgrid {
   display: grid;
   grid-template-columns: 1fr 1fr;

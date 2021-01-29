@@ -32,7 +32,7 @@ export default {
     const mapRoutes = {
       '/': { question: t_('whyYouHere'), answer: t_('changeAnswer') },
       '/people': {
-        question: 'Who are you looking for?',
+        question: t_('peopleQuestion'),
         answer: t_('changeAnswer'),
       },
       '/planets': {
@@ -79,7 +79,6 @@ export default {
   & .answer {
     display: block;
     padding-top: 0.5em;
-    opacity: 0.5;
   }
 }
 </style>

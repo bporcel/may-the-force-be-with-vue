@@ -27,6 +27,7 @@ const en = {
   passengers: 'Passengers: ',
   pilots: 'Pilots: ',
   people: 'People',
+  peopleQuestion: 'Who are you looking for?',
   planets: 'Planets',
   planetQuestion: 'What planet are yout looking for?',
   population: 'Population: ',

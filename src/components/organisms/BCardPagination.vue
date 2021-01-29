@@ -93,6 +93,7 @@ export default {
 <style lang="scss" scoped>
 .pageBtn {
   font-size: 1.2em;
+  padding: 1em 1em 1em 0;
   &:hover {
     color: $yellow;
   }

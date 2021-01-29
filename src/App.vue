@@ -78,6 +78,15 @@ a {
   }
 }
 
+.question {
+  color: $blue;
+}
+
+.title {
+  font-size: 3em;
+  margin-top: 0;
+}
+
 @media only screen and (max-width: 650px) {
   .card {
     margin: 1em 0;

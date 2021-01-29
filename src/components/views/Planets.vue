@@ -1,5 +1,6 @@
 <template>
-  <h1>{{ t_('planets') }}</h1>
+  <h1 class="title">{{ t_('planets') }}</h1>
+  <h1 class="question">{{ t_('planetQuestion') }}</h1>
   <div v-if="fetching">{{ t_('fetching') }}</div>
   <div v-else-if="error"><b-error /></div>
   <div v-else>
