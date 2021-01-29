@@ -25,7 +25,7 @@ const getAllStarships = () => {
       .then(res => res)
       .catch(reject);
     while (starships.next) {
-      const tmp = await get(starships.next)
+      const tmp = await get(starships.next.replace('http', 'https'))
         .then(res => res)
         .catch(reject);
       starships.next = tmp.next;

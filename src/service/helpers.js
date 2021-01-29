@@ -10,7 +10,7 @@ const arrayToString = array => {
 
 const mapUrlArrayToStringArray = (items, index) => {
   items.map((item, key) => {
-    items[key] = get(item).then(res => res[index]);
+    items[key] = get(item.replace('http', 'https')).then(res => res[index]);
   });
 };
 
