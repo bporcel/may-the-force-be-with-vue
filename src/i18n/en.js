@@ -29,7 +29,7 @@ const en = {
   people: 'People',
   peopleQuestion: 'Who are you looking for?',
   planets: 'Planets',
-  planetQuestion: 'What planet are yout looking for?',
+  planetQuestion: 'What planet are you looking for?',
   population: 'Population: ',
   rotationPeriod: 'Rotation period: ',
   residents: 'Residents: ',
